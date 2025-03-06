@@ -1,0 +1,72 @@
+[TASK]
+Generate descriptive text for procedural tile generation in a pixel art style game. The description should capture the visual elements, color scheme, mood, and lighting that would be appropriate for the specified environment and mythology.
+
+[ENVIRONMENT]
+Biome: {{environment.biome}}
+Time of Day: {{environment.time_of_day}}
+Weather: {{environment.weather}}
+
+[MYTHOLOGY]
+Influences: {{mythology.influences}}
+Narrative Elements: {{mythology.narrative_elements}}
+
+[STYLE PARAMETERS]
+Aesthetic: {{style_params.aesthetic}}
+Color Palette: {{style_params.color_palette}}
+Detail Level: {{style_params.detail_level}}
+
+[OUTPUT FORMAT]
+Provide a JSON description with the following structure:
+{
+  "tile_description": {
+    "visual_elements": ["Element 1", "Element 2", "Element 3", "Element 4"],
+    "color_scheme": ["#HexColor1", "#HexColor2", "#HexColor3", "#HexColor4"],
+    "mood": "The overall mood or atmosphere of the tile",
+    "lighting": "Description of lighting effects and shadows"
+  }
+}
+
+[CONSTRAINTS]
+- Generate descriptions appropriate for pixel art with the specified detail level
+- Include 3-5 distinct visual elements that would be recognizable in pixel art
+- Provide 3-5 hex color codes that form a cohesive palette matching the environment
+- Ensure the description is consistent with the specified biome, time of day, and weather
+- Incorporate mythology influences and narrative elements subtly into the visual elements
+- Return only the JSON object without additional text or explanation
+
+[EXAMPLES]
+Example 1:
+Environment: Ancient forest at dusk with light rain
+Mythology: Elven ruins and nature spirits
+Style: Pixel art with medium detail
+Response: {
+  "tile_description": {
+    "visual_elements": [
+      "Moss-covered stone archway with faded elven runes",
+      "Twisted ancient trees with glowing blue fungi",
+      "Small puddles reflecting the fading light",
+      "Fallen stone statues half-buried in the undergrowth"
+    ],
+    "color_scheme": ["#2A3B4C", "#3E6259", "#BDA355", "#5D4C46"],
+    "mood": "mysterious melancholy",
+    "lighting": "diffused twilight with blue-tinted shadows"
+  }
+}
+
+Example 2:
+Environment: Desert ruins at noon with sandstorm
+Mythology: Ancient civilization and forbidden knowledge
+Style: Pixel art with low detail
+Response: {
+  "tile_description": {
+    "visual_elements": [
+      "Half-buried stone pillars with strange symbols",
+      "Swirling sand obscuring distant structures",
+      "Cracked clay tablets scattered on the ground",
+      "Ominous dark entrance to underground chamber"
+    ],
+    "color_scheme": ["#D9B166", "#8C5E35", "#402E27", "#A3320B"],
+    "mood": "foreboding desolation",
+    "lighting": "harsh direct sunlight with long shadows and dust particles"
+  }
+} 

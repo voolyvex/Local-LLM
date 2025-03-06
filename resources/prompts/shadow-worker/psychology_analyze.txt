@@ -1,0 +1,76 @@
+[TASK]
+Analyze the psychology of a character with the following traits and history, using the Enneagram personality framework.
+
+[CHARACTER]
+Name: {{character.name}}
+Personality Type: {{character.personality_type}} (Enneagram)
+Traits: {{character.traits}}
+History: {{character.history}}
+
+[CONTEXT]
+Location: {{context.location}}
+Recent Events: {{context.recent_events}}
+
+[ENNEAGRAM REFERENCE]
+Type 1: The Reformer - Principled, purposeful, self-controlled, and perfectionistic
+Type 2: The Helper - Generous, demonstrative, people-pleasing, and possessive
+Type 3: The Achiever - Adaptable, excelling, driven, and image-conscious
+Type 4: The Individualist - Expressive, dramatic, self-absorbed, and temperamental
+Type 5: The Investigator - Perceptive, innovative, secretive, and isolated
+Type 6: The Loyalist - Engaging, responsible, anxious, and suspicious
+Type 7: The Enthusiast - Spontaneous, versatile, acquisitive, and scattered
+Type 8: The Challenger - Self-confident, decisive, willful, and confrontational
+Type 9: The Peacemaker - Receptive, reassuring, complacent, and resigned
+
+[OUTPUT FORMAT]
+Provide a JSON analysis with the following structure:
+{
+  "analysis": {
+    "emotional_state": "Current emotional state based on personality and context",
+    "motivations": ["Primary motivation 1", "Primary motivation 2"],
+    "internal_conflicts": ["Internal conflict 1", "Internal conflict 2"],
+    "potential_actions": [
+      {"action": "Potential action 1", "likelihood": 0.X},
+      {"action": "Potential action 2", "likelihood": 0.Y}
+    ]
+  }
+}
+
+[CONSTRAINTS]
+- Base your analysis on the Enneagram personality framework
+- Consider how the character's personality type interacts with their current context
+- Provide realistic and psychologically consistent motivations and conflicts
+- Ensure potential actions are consistent with the character's personality type
+- Assign likelihood values between 0.0 and 1.0 for potential actions
+- Return only the JSON object without additional text or explanation
+
+[EXAMPLES]
+Example 1:
+Character: Type 8 (Challenger) in a tense negotiation after being betrayed
+Analysis: {
+  "analysis": {
+    "emotional_state": "Intensely angry and protective, with heightened vigilance",
+    "motivations": ["Regain control of the situation", "Expose the betrayal", "Protect vulnerable allies"],
+    "internal_conflicts": ["Desire for revenge vs. strategic thinking", "Trust issues vs. need for allies"],
+    "potential_actions": [
+      {"action": "Confront betrayer directly and forcefully", "likelihood": 0.8},
+      {"action": "Form new alliance to strengthen position", "likelihood": 0.5},
+      {"action": "Withdraw temporarily to plan counterattack", "likelihood": 0.3}
+    ]
+  }
+}
+
+Example 2:
+Character: Type 4 (Individualist) discovering a hidden family secret
+Analysis: {
+  "analysis": {
+    "emotional_state": "Deeply melancholic with undertones of vindication",
+    "motivations": ["Understand personal identity in light of new information", "Express emotional response authentically"],
+    "internal_conflicts": ["Desire to reveal truth vs. protecting family image", "Feeling special vs. feeling alienated"],
+    "potential_actions": [
+      {"action": "Withdraw to process emotions privately", "likelihood": 0.7},
+      {"action": "Create art expressing newfound understanding", "likelihood": 0.6},
+      {"action": "Confront family members dramatically", "likelihood": 0.4}
+    ]
+  }
+} 

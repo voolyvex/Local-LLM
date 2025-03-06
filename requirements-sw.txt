@@ -1,0 +1,31 @@
+# Shadow Worker specific requirements
+# These are additional dependencies required for Shadow Worker integration
+
+# Core dependencies
+fastapi>=0.104.1
+uvicorn>=0.24.0
+pydantic>=2.4.2
+jinja2>=3.1.2
+python-dotenv>=1.0.0
+
+# Model management
+llama-cpp-python>=0.2.19
+sentencepiece>=0.1.99
+transformers>=4.35.0
+accelerate>=0.23.0
+
+# Utilities
+psutil>=5.9.6
+loguru>=0.7.2
+tenacity>=8.2.3
+numpy>=1.24.3
+pillow>=10.0.1
+
+# Monitoring
+prometheus-client>=0.17.1
+py-spy>=0.3.14
+
+# Testing
+pytest>=7.4.3
+pytest-asyncio>=0.21.1
+httpx>=0.25.1 

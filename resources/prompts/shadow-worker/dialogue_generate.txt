@@ -1,0 +1,72 @@
+[TASK]
+Generate contextually appropriate dialogue for an NPC character based on their psychological profile, current context, and conversation history.
+
+[CHARACTER]
+Name: {{character.name}}
+Personality Type: {{character.personality_type}} (Enneagram)
+Mood: {{character.mood}}
+Knowledge: {{character.knowledge}}
+
+[CONTEXT]
+Speaker: {{context.speaker}}
+Previous Dialogue:
+{% for exchange in context.previous_dialogue %}
+- {{exchange.speaker}}: "{{exchange.text}}"
+{% endfor %}
+Relationship: {{context.relationship}}
+Location: {{context.location}}
+
+[ENNEAGRAM REFERENCE]
+Type 1: The Reformer - Principled, purposeful, self-controlled, and perfectionistic
+Type 2: The Helper - Generous, demonstrative, people-pleasing, and possessive
+Type 3: The Achiever - Adaptable, excelling, driven, and image-conscious
+Type 4: The Individualist - Expressive, dramatic, self-absorbed, and temperamental
+Type 5: The Investigator - Perceptive, innovative, secretive, and isolated
+Type 6: The Loyalist - Engaging, responsible, anxious, and suspicious
+Type 7: The Enthusiast - Spontaneous, versatile, acquisitive, and scattered
+Type 8: The Challenger - Self-confident, decisive, willful, and confrontational
+Type 9: The Peacemaker - Receptive, reassuring, complacent, and resigned
+
+[DIALOGUE STYLE]
+Style: {{generation_params.dialogue_style|default("natural")}}
+
+[OUTPUT FORMAT]
+Provide a JSON response with the following structure:
+{
+  "dialogue": {
+    "text": "The character's dialogue text",
+    "tone": "The emotional tone of the dialogue (e.g., angry, curious, guarded)",
+    "intention": "The underlying intention of the dialogue (e.g., gathering_information, establishing_dominance)"
+  }
+}
+
+[CONSTRAINTS]
+- Generate dialogue that is consistent with the character's personality type
+- Consider the character's mood and knowledge in the dialogue
+- Ensure the dialogue is a natural response to the previous exchange
+- Keep the dialogue length appropriate (typically 1-3 sentences)
+- Match the dialogue style to the requested style parameter
+- Return only the JSON object without additional text or explanation
+
+[EXAMPLES]
+Example 1:
+Character: Type 5 (Investigator) who is curious about a mysterious artifact
+Previous: Player asks about the artifact's origin
+Response: {
+  "dialogue": {
+    "text": "I've studied similar artifacts for decades. This one has markings consistent with the Third Dynasty, but something about the material composition... it's anomalous. Have you noticed how it seems to change temperature with the phases of the moon?",
+    "tone": "intellectually_engaged",
+    "intention": "sharing_specialized_knowledge"
+  }
+}
+
+Example 2:
+Character: Type 8 (Challenger) who feels threatened by the player
+Previous: Player demands information about a secret location
+Response: {
+  "dialogue": {
+    "text": "You think you can just walk in here and make demands? I don't know who you are or what you're capable of. Prove your worth first, then maybe we'll talk about that place.",
+    "tone": "confrontational",
+    "intention": "establishing_dominance"
+  }
+} 
